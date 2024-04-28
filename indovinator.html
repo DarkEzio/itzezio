@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <title>Indovinator</title>
+    <link rel="icon" type="image/png" href="img/indovinator_favicon.png">
+    <style>
+        body{
+            background-image: url("img/indovinator_background.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            max-width: 1920px; 
+            margin: 0 auto;
+            height:100vh;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+    <h1 style="display: inline;color:azure;font-family:Cursive;">Player:</h1>
+    <h2 id="nome_giocatore" style="display: inline;color:rgb(253, 100, 61);font-size:30px;font-family:Cursive"></h2>
+    </div>
+
+    <script>
+        var valoreRecuperato= localStorage.getItem("valoreSalvato");
+        document.getElementById("nome_giocatore").innerText= valoreRecuperato
+    </script>
+    
+    <a href="index.html"><button style="background-color: rgb(47, 40, 105);color:azure;width:150px;font-size:25px;border-radius:10px">MENU</button>
+    </a>
+    
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <center>
+        <div style="width: 400px;height: 200px;border:1px solid black;background-color:blue;border-radius:10px;text-align:center;">
+            <p <span id="domanda" style="font-size: 25px;color:azure">Il tuo personaggio si identifica nel genere maschile?</span></p>
+            <p id="numero_dom" ></span></p>
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <button type="submit" name="risposta" onclick="scelta_si()"value="SI" 
+        
+        style="font-size: 45px;width: 120px;
+        height:80px;
+        background-color:green;
+        font-family:'Courier New', Courier, monospace;
+        border-radius:10px;
+        ">SI</button>
+
+        <button type="submit" name="risposta" onclick="scelta_no()" value="NO" 
+        
+        style="font-size:35px;
+        width:120px;
+        height:80px;
+        background-color:red;
+        border-radius:10px;
+        ">NO</button>
+        </center>
+
+
+    <script>
+        var numero_domande_si=-1;
+        var numero_domande_no=-1;
+        var numero_quesito_si= 0;
+        var numero_quesito_no= 0;
+        var domande_si=[
+        "Il tuo personaggio è collegato con la scienza?",                        //0
+        "Il tuo personaggio è un fisico?",                                       //1
+        "Il tuo personaggio segue la religione Musulmana?",                      //2
+        "Il tuo personaggio viene riconosciuto come:il distruttore di mondi?",   //3
+        "Il tuo personaggio camminava spesso su un cavallo bianco?",             //4
+        "Il tuo personaggio ha perso le capacità uditive?",                      //5
+        "Il tuo personaggio è attuale? ",                                        //6
+        "Il tuo personaggio è stato accusato di stregoneria?",                   //7
+        "Il tuo personaggio fu regina d'Inghilterra",                            //8
+        "Il tuo personaggio è noto per aver scoperto la teoria della relatività",//9
+        ]
+        var domande_no=[
+        "Il tuo personaggio si identifica nel genere femminile?",        //0
+        "Il tuo personaggio ha fini religiosi?",                         //1
+        "Il tuo personaggio è stato importante  per la storia?",         //2
+        "Il tuo personaggio ha realizzato composizioni musicali?",       //3
+        "Il tuo personaggio è attualmente uno dei più ricchi al mondo? ",//4
+        "Il tuo personaggio è vissuto tra il XIX e il XX secolo?",       //5
+        "Il tuo personaggio ha scoperto il pi greco?",                   //6
+        "Il tuo personaggio ha scoperto le Americhe?",                   //7
+        "Il tuo personaggio ha collegamenti con la Francia?",            //8
+        "Il tuo personaggio è legato fortemente alla religione?",        //9
+        "Il tuo personaggio proviene da un linguaggio anglosassone",     //10
+        "Il tuo personaggio fu un attrice ed una cantante",              //11
+        ]
+        function scelta_si(){
+            numero_quesito_si++
+            numero_domande_si++;
+            document.getElementById("domanda").innerHTML=domande_si[numero_domande_si]
+            console.log("------------------");
+            console.log("NO")
+            console.log(domande_no);
+            console.log("=========");
+            console.log("SI")
+            console.log(domande_si);
+            console.log("------------------");
+            switch(numero_quesito_si){
+                case 1:
+                // Il tuo personaggio è collegato con la scienza?
+                domande_no.splice(0,1);domande_no.splice(5,1);domande_no.splice(8,1);domande_no.splice(9,1);domande_no.splice(10,1);domande_no.splice(11,1);
+                domande_si.splice(8,1);domande_si.splice(9,1);
+                numero_quesito_no=126
+                break
+                case 2:
+                // Il tuo personaggio è un fisico?
+                domande_no.splice(1,1);domande_no.splice(2,1);domande_no.splice(3,1);
+                domande_si.splice(2,1);domande_si.splice(4,1);domande_si.splice(5,1);domande_si.splice(1,1);domande_si.splice(4,1);domande_si.splice(2,2);domande_si.splice(0,1);
+                break
+                case 3:
+                // Il tuo personaggio viene riconosciuto come il distruttore di mondi?
+                document.getElementById("domanda").innerHTML="Il tuo personaggio viene riconosciuto come il distruttore di mondi?"
+                numero_quesito_no=31;
+                break
+                case 4:
+                // Il tuo personaggio è Opphenimer?
+                document.getElementById("domanda").innerHTML="Il tuo personaggio è Opphenimer?";
+                v_f();
+                case 67:
+                 // il tuo personaggio e attuale?
+                domande_no.splice(0,5);
+                numero_quesito_no=34;
+                numero_domande_no=-1;
+                break
+                case 68:
+                // il tuo personaggio e Greta Thumberg?
+                domande_si.splice(0,10);
+                domande_no.splice(0,12);
+                document.getElementById("domanda").innerHTML="Il tuo personaggio e Greta Thumberg?"
+                v_f();
+                break
+                case 23:
+                // Il tuo personaggio è stato accusato di stregoneria?
+                numero_quesito_no=11
+                break
+                case 24:
+                // Il tuo personaggio e Giovanna d'Arco?
+                document.getElementById("domanda").innerHTML="Il tuo personaggio e Giovanna d'Arco?"
+                v_f();
+                break
+                case 46:
+                // Il tuo personaggio è Madre Teresa?
+                document.getElementById("domanda").innerHTML="Il tuo personaggio è Madre Teresa?"
+                v_f();
+                break
+                case 52:
+                // Il tuo personaggio fu regina d'Inghilterra
+                document.getElementById("domanda").innerHTML="Il tuo personaggio fu regina d'Inghilterra"
+                numero_quesito_no=52
+                break
+                case 53:
+                // Il tuo personaggio è Elisabetta I?
+                document.getElementById("domanda").innerHTML="Il tuo personaggio è Elisabetta I?"
+                v_f();
+                break
+                case 62:
+                //Il tuo personaggio è Marilyn Monroe?
+                document.getElementById("domanda").innerHTML="Il tuo personaggio è Marilyn Monroe?"
+                v_f();
+                break
+                case 34:
+                // Il tuo personaggio è noto per aver scoperto la teoria della relatività
+                document.getElementById("domanda").innerHTML="Il tuo personaggio è noto per aver scoperto la teoria della relatività"
+                numero_quesito_no=123;
+                break
+                case 35:
+                // Il tuo personaggio è Alber Einstein?
+                document.getElementById("domanda").innerHTML="Il tuo personaggio è Alber Einstein?"
+                v_f()
+                break
+                case 124:
+                // Il tuo Personaggio è Elon Mask?
+                document.getElementById("domanda").innerHTML="Il tuo Personaggio è Elon Mask?"
+                v_f()
+                break
+                case 131:
+                // Il tuo personaggio è Archimede?
+                document.getElementById("domanda").innerHTML="Il tuo personaggio è Archimede?"
+                v_f();
+                break
+                case 163:
+                // Il tuo personaggio segue la religione Musulmana?
+                domande_si.splice(0,1)
+                numero_quesito_no=163
+                break
+                case 164:
+                // Il tuo personaggio è Maometto!!!
+                document.getElementById("domanda").innerHTML="Il tuo personaggio è Maometto?"
+                v_f()
+                break
+                case 179:
+                document.getElementById("domanda").innerHTML="Il tuo personaggio ha perso le capacità uditive?"
+                numero_quesito_no=179
+                break
+                case 180:
+                document.getElementById("domanda").innerHTML="Il tuo personaggio è Beethoven?"
+                v_f()
+                case 200:
+                document.getElementById("domanda").innerHTML="Il tuo personaggio camminava spesso su un cavallo bianco?"
+                numero_quesito_no=209
+                break
+                case 201:
+                document.getElementById("domanda").innerHTML="Il tuo personaggio è Napoleone Bonaparte?"
+                v_f()
+                break
+                case 213:
+                document.getElementById("domanda").innerHTML="Il tuo personaggio è Cristoforo Colombo?"
+                v_f();
+                break
+                case 25:
+                home();
+                break
+            }  
+        }
+        if(domande_no===undefined){
+            sorry()
+        }
+        if(domande_si===undefined){
+            sorry()
+        }
+        function scelta_no(){
+            numero_quesito_no++
+            numero_domande_no++
+            document.getElementById("domanda").innerHTML=domande_no[numero_domande_no]
+            console.log("------------------");
+            console.log("NO");
+            console.log(domande_no);
+            console.log("=========");
+            console.log("SI");
+            console.log(domande_si);
+            console.log("------------------");
+            switch(numero_quesito_no){
+                case 1:
+                // il tuo personaggio si identifica nel genere femminile?
+                domande_no.splice(1,1);domande_no.splice(2,1);domande_no.splice(3,1);
+                domande_si.splice(0,1);domande_si.splice(1,1);domande_si.splice(3,1);domande_si.splice(2,1);domande_si.splice(4,1);domande_si.splice(5,1);
+                numero_quesito_si=66;
+                numero_domande_si=1;
+                break
+                case 2:
+                // il tuo personaggio e Laurel Hubbard?
+                document.getElementById("domanda").innerHTML="il tuo personaggio e Laurel Hubbard?"
+                v_f();
+                break
+                case 35:
+                // Il tuo personaggio ha collegamenti con la Francia?
+                domande_no.splice(0,1);
+                domande_si.splice(0,2);domande_si.splice(0,1);domande_si.splice(2,1);domande_si.splice(1,1);
+                numero_quesito_si=22;
+                numero_domande_si=-1;
+                numero_quesito_no=44;
+                numero_domande_no=-1
+                break
+                case 12:
+                // Il tuo personaggio è Marie Curie!!!
+                document.getElementById("domanda").innerHTML="Il tuo personaggio è Marie Curie?"
+                v_f();
+                break
+                case 45:
+                // il tuo personaggio e legato fortemente alla religione?
+                domande_no.splice(0,1)
+                numero_domande_no=-1
+                numero_quesito_si=45;
+                break
+                case 46:
+                // il tuo personaggio proviene da un linguaggio anglosassone?
+                numero_quesito_si=51;
+                break
+                case 47:
+                // il tuo personaggio dun un attrice ed una cantante?
+                numero_quesito_si=61;
+                break
+                case 48:
+                // Il tuo personaggio è Cleopatra?
+                document.getElementById("domanda").innerHTML="Il tuo personaggio è Cleopatra?"
+                v_f();
+                break
+                case 53:
+                // Il tuo personaggio è Margaret Thatcher?
+                document.getElementById("domanda").innerHTML="Il tuo personaggio è Margaret Thatcher?"
+                v_f();
+                break
+                case 32:
+                // Il tuo personaggio è attualmente uno dei più ricchi al mondo?
+                document.getElementById("domanda").innerHTML="Il tuo personaggio è attualmente uno dei più ricchi al mondo?"
+                domande_no.splice(0,2);domande_no.splice(3,3);domande_no.splice(1,2)
+                numero_domande_no=-1
+                numero_quesito_si=123;
+                break
+                case 33:
+                // Il tuo personaggio è vissuto tra il XIX e il XX secolo?
+                domande_no.splice(0,1);
+                numero_quesito_si=33
+                break
+                case 34:
+                // Il tuo personaggio ha scoperto il pi greco?
+                document.getElementById("domanda").innerHTML="Il tuo personaggio ha scoperto il pi greco?"
+                numero_quesito_no=24
+                numero_quesito_si=130
+                break
+                case 124:
+                // Il tuo personaggio è Nicola Tesla?
+                document.getElementById("domanda").innerHTML="Il tuo personaggio è Nicola Tesla?"
+                v_f()
+                break
+                case 127:
+                //Il tuo personaggio ha fini religiosi?
+                domande_si.splice(0,2);domande_si.splice(1,6)
+                numero_quesito_si=162
+                numero_domande_si=-1
+                break
+                case 128:
+                // il tuo personaggio e stato importante per la storia
+                domande_no.splice(0,2); domande_no.splice(3,6);domande_no.splice(1,2)
+                numero_quesito_si=199;
+                break
+                case 129:
+                document.getElementById("domanda").innerHTML="Il tuo personaggio ha realizzato composizioni musicali?"
+                numero_quesito_no=24
+                numero_quesito_si=178
+                break
+                case 164:
+                document.getElementById("domanda").innerHTML="Il tuo personaggio è Gesù Di Nazzaret?"
+                v_f()
+                break
+                case 180:
+                document.getElementById("domanda").innerHTML="Il tuo personaggio è Mozart?"
+                v_f()
+                break
+                case 210:
+                document.getElementById("domanda").innerHTML="Il tuo personaggio ha scoperto le Americhe?"
+                numero_quesito_no=128
+                numero_quesito_si= 212
+                break
+                case 25:
+                // SCUSA
+                sorry()
+                numero_quesito_si=24
+                break
+                case 26:
+                home()
+                break
+            }
+        }
+        function home(){
+            window.location.replace("index.html");
+        }
+        function sorry(){
+            document.getElementById("domanda").innerHTML="Mi dispiace di non essere riuscito a trovare il tuo personaggio :("
+        }
+        function v_f(){
+            numero_quesito_no=24;
+            numero_quesito_si=24;
+        }
+    </script>
+    
+</body>
+</html>
